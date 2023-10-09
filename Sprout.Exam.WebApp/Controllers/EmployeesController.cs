@@ -30,10 +30,6 @@ namespace Sprout.Exam.WebApp.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            // var result = await Task.FromResult(StaticEmployees.ResultList);
-            //var query = new GetAllEmployeesQuery();
-            //var result = await _mediator.Send(query);
-            //return Ok(result);
             return await HandleControllerActions.Execute(this, new GetAllEmployeesQuery());
         }
 
@@ -44,9 +40,6 @@ namespace Sprout.Exam.WebApp.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
-            //var result = await Task.FromResult(StaticEmployees.ResultList.FirstOrDefault(m => m.Id == id));
-            //return Ok(result);
-
             return await HandleControllerActions.Execute(this, new GetEmployeeByIdQuery() { Id = id });
         }
 
@@ -57,14 +50,6 @@ namespace Sprout.Exam.WebApp.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> Put(UpdateEmployeeCommand input)
         {
-            //var item = await Task.FromResult(StaticEmployees.ResultList.FirstOrDefault(m => m.Id == input.Id));
-            //if (item == null) return NotFound();
-            //item.FullName = input.FullName;
-            //item.Tin = input.Tin;
-            //item.Birthdate = input.Birthdate.ToString("yyyy-MM-dd");
-            //item.TypeId = input.TypeId;
-            //return Ok(item);
-
             return await HandleControllerActions.Execute(this, input);
         }
 
@@ -75,30 +60,6 @@ namespace Sprout.Exam.WebApp.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] CreateEmployeeCommand input)
         {
-
-            //var id = await Task.FromResult(StaticEmployees.ResultList.Max(m => m.Id) + 1);
-            //StaticEmployees.ResultList.Add(new EmployeeDto
-            //{
-            //    Birthdate = input.Birthdate.ToString("yyyy-MM-dd"),
-            //    FullName = input.FullName,
-            //    Id = id,
-            //    Tin = input.Tin,
-            //    TypeId = input.TypeId
-            //});
-
-
-            //return Created($"/api/employees/{id}", id);
-
-            //var command = new CreateEmployeeCommand()
-            //{
-            //    Birthdate = input.Birthdate.ToString("yyyy-MM-dd"),
-            //    FullName = input.FullName,
-            //    Tin = input.Tin,
-            //    TypeId = input.TypeId
-            //};
-            //var result = await _mediator.Send(command);
-            //return Created($"/api/employees/{result.ID}", result.ID);
-
             return await HandleControllerActions.Execute(this, input);
         }
 
@@ -110,11 +71,6 @@ namespace Sprout.Exam.WebApp.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            //var result = await Task.FromResult(StaticEmployees.ResultList.FirstOrDefault(m => m.Id == id));
-            //if (result == null) return NotFound();
-            //StaticEmployees.ResultList.RemoveAll(m => m.Id == id);
-            //return Ok(id);
-
             return await HandleControllerActions.Execute(this, new DeleteEmployeeCommand() { Id = id });
         }
 
@@ -130,12 +86,6 @@ namespace Sprout.Exam.WebApp.Controllers
         [HttpPost("{id}/calculate")]
         public async Task<IActionResult> Calculate(CalculateEmployeeSalaryCommand input)
         {
-            //var result = await Task.FromResult(StaticEmployees.ResultList.FirstOrDefault(m => m.Id == input.Id));
-
-            //if (result == null) return NotFound();
-            //var type = (EmployeeType)result.TypeId;
-            //var employee = _employeeFactory.CreateEmployee(type, input.AbsentDays, input.WorkedDays);
-            //var result = await _mediator.Send(input);
             return await HandleControllerActions.Execute(this, input);
 
 
